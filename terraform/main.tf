@@ -18,8 +18,10 @@ resource "random_id" "environment_name" {
 }
 
 module "ssh" {
-  source       = "./ssh"
-  ssh_key_name = "${random_id.environment_name.hex}"
+  source          = "./ssh"
+  ssh_key_name    = "${random_id.environment_name.hex}"
+  ssh_private_key = "${var.ssh_private_key}"
+  ssh_public_key  = "${var.ssh_public_key}"
 }
 
 module "hashistack-instance-profile" {
@@ -163,25 +165,25 @@ module "admin-east" {
 }
 
 module "client-west" {
-  source                           = "./client"
-  owner                            = "${var.owner}"
-  ttl                              = "${var.ttl}"
-  region                           = "us-west-2"
-  cluster_name                     = "${random_id.environment_name.hex}-us-west-2"
-  environment_name                 = "${random_id.environment_name.hex}"
-  ssh_key_name                     = "${random_id.environment_name.hex}-client"
-  instance_profile                 = "${module.hashistack-instance-profile.policy}"
-  public_key_data                  = "${module.ssh.public_key_data}"
-  private_key_data                 = "${module.ssh.private_key_data}"
-  subnet_ids                       = "${module.vpc-west.public_subnets}"
-  vpc_id                           = "${module.vpc-west.vpc_id}"
-  ssh_user_name                    = "${lookup(local.ssh_user_map,var.operating_system)}"
-  operating_system                 = "${var.operating_system}"
-  operating_system_version         = "${var.operating_system_version}"
-  hashistack_instance_arn          = "${module.hashistack-instance-profile.hashistack_instance_arn}"
-  vanity_domain                    = "${var.root_domain}"
-  image_release = "${var.image_release}"       
-  image_owner = "${var.image_owner}"
+  source                   = "./client"
+  owner                    = "${var.owner}"
+  ttl                      = "${var.ttl}"
+  region                   = "us-west-2"
+  cluster_name             = "${random_id.environment_name.hex}-us-west-2"
+  environment_name         = "${random_id.environment_name.hex}"
+  ssh_key_name             = "${random_id.environment_name.hex}-client"
+  instance_profile         = "${module.hashistack-instance-profile.policy}"
+  public_key_data          = "${module.ssh.public_key_data}"
+  private_key_data         = "${module.ssh.private_key_data}"
+  subnet_ids               = "${module.vpc-west.public_subnets}"
+  vpc_id                   = "${module.vpc-west.vpc_id}"
+  ssh_user_name            = "${lookup(local.ssh_user_map,var.operating_system)}"
+  operating_system         = "${var.operating_system}"
+  operating_system_version = "${var.operating_system_version}"
+  hashistack_instance_arn  = "${module.hashistack-instance-profile.hashistack_instance_arn}"
+  vanity_domain            = "${var.root_domain}"
+  image_release            = "${var.image_release}"
+  image_owner              = "${var.image_owner}"
 }
 
 module "mysql-database" {
