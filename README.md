@@ -31,13 +31,8 @@ This is most likely optional as Terraform will automatically pull the latest has
     $ cd packer
     ```
 7. Download enterprise binaries and add variables to vars.json (copied from vars.json.example):
-    * CentOS 7
         ```
         $ packer build -var-file=vars.json -only=amazon-ebs-centos-7 packer.json   
-        ```
-    * RHEL 7.5 - Additional licensing costs
-        ```
-        $ packer build -var-file=vars.json -only=amazon-ebs-rhel-7.5-systemd packer.json   
         ```
 
 ## Step 2: Terraform Enterprise  
@@ -48,7 +43,7 @@ This is most likely optional as Terraform will automatically pull the latest has
 ![](assets/create_workspace.png)
 
 1. [Configure variables
-](https://www.terraform.io/docs/enterprise/workspaces/variables.html) for the workspace, [available variables](terraform/variables.tf).  Note: add the `CONFIRM_DESTROY = 1` environment variable as well so you can destroy the workspace.  Use `rhel` for `operating_system` and `7.5` for `operating_system_version` due to a bug with CentOS.
+](https://www.terraform.io/docs/enterprise/workspaces/variables.html) for the workspace, [available variables](terraform/variables.tf).  Note: add the `CONFIRM_DESTROY = 1` environment variable as well so you can destroy the workspace.
 
 ![](assets/configure_variables.png)
 

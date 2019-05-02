@@ -3,7 +3,7 @@
 
 Ensure Fabio is Running (It should be already)
 ```bash
-#should be ec2-user or ubuntu user
+#should be centos
 nomad run /home/$(whoami)/nomad/fabio-${local_region}.nomad
 ```
 

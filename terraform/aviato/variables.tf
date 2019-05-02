@@ -23,17 +23,17 @@ variable "instance_type" {
 
 variable "operating_system" {
   default     = "centos"
-  description = "Operating system type, supported options are rhel, centos, and ubuntu"
+  description = "Operating system type, supported options are centos"
 }
 
 variable "operating_system_version" {
   default     = "7"
-  description = "Operating system version, supported options are 7.5 for rhel, 7 for CentOS, 16.04/18.04 for ubuntu"
+  description = "Operating system version, supported options are 7 for CentOS"
 }
 
 variable "ssh_user_name" {
   default     = "centos"
-  description = "Default ssh username for provisioning, ec2-user for rhel systems, centos for CentOS systems, ubuntu for ubuntu systems"
+  description = "Default ssh username for provisioning, centos for CentOS systems"
 }
 
 variable "vanity_domain" {

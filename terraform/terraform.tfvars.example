@@ -6,14 +6,6 @@ env_name = "hashistack"
 operating_system           = "centos"
 operating_system_version   = "7"
 
-# rhel option - additional instance licensing costs
-#operating_system           = "rhel"
-#operating_system_version   = "7.5"
-
-# ubuntu option - work in progress
-#operating_system           = "ubuntu"
-#operating_system_version   = "16.04"
-
 # automatically initialize and unseal vault clusters 
 vault_cloud_auto_init_and_unseal   = "true"
 
