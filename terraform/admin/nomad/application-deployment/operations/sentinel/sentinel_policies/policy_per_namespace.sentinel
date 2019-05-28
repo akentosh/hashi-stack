@@ -8,7 +8,7 @@ task_users = func() {
             if user is "" {
                 continue
             }
-            if ns == "groupA" and user != "ubuntu" {
+            if ns == "groupA" and user != "centos" {
                 return false
             } else if ns == "groupB" and user != "nobody" {
                 return false

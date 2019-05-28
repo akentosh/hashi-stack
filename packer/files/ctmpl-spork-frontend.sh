@@ -5,19 +5,7 @@ set -x
 source /etc/os-release
 echo "Get working directory"
 echo "Determine OS type"
-if [[ $ID == "centos" ]]; then
-  echo "CentOS system detected"
-  WORKDIR="/home/centos/application"
-elif [[ $ID == "ubuntu" ]]; then
-  echo "Ubuntu system detected"
-  WORKDIR="/home/ubuntu/application"
-elif [[ $ID == "rhel" ]]; then
-  echo "RHEL system detected"
-  WORKDIR="/home/ec2-user/application"
-else
-  echo "OS detection failure"
-  exit 1;
-fi
+WORKDIR="/home/centos/application"
 
 #Login to vault and export the token
 VAULT_TOKEN=`vault login -token-only -method=userpass username=vault password=vault`

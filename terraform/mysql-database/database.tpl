@@ -19,11 +19,6 @@ sudo echo "127.0.0.1 $${hostname}" | sudo tee --append /etc/hosts
 # set the hostname (before starting consul and nomad)
 hostnamectl set-hostname "$${new_hostname}"
 
-echo "${private_key}" > /home/ubuntu/.ssh/id_rsa
-chmod 0700 /home/ubuntu/.ssh
-chmod 0600 /home/ubuntu/.ssh/id_rsa
-chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa
-
 # ensure dnsmasq is part of name resolution
 sudo sed '1 i nameserver 127.0.0.1' -i /etc/resolv.conf
 

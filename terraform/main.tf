@@ -84,7 +84,7 @@ module "vpc-west" {
 }
 
 locals {
-  ssh_user_map = "${map("ubuntu","ubuntu","rhel","ec2-user","centos","centos")}"
+  ssh_user_map = "${map("centos","centos")}"
 }
 
 module "hashistack-us-east" {
