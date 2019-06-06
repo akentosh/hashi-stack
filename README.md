@@ -1,3 +1,5 @@
+![](assets/logo.png)
+
 # Overview
 This contains HashiCorp code to do the following:
 1. Packer template to build an Ubuntu 18.04 image consisting of 'HashiStack', which is Consul, Nomad and Vault
