@@ -18,8 +18,7 @@ job "transit-app-example" {
 
             driver = "docker"
             config {
-                #image = "airedale/transit-demo:token"
-                image = "aklaas2/transit-app-example-test:latest"
+                image = "arodd/spork-websvc:latest"
                 volumes = ["local/config.ini:/usr/src/app/config/config.ini"]
                 network_mode = "host"
                 port_map {
@@ -47,8 +46,12 @@ job "transit-app-example" {
                 KeyName=customer-key
                 DynamicDBCreds = true
                 DynamicDBCredsPath = lob_a/workshop/database/creds/workshop-app
+
+                [CONSUL]
+                DEBUG = {{ key "service/web/debug" }}
                 EOH
                 destination = "local/config.ini"
+                change_mode = "noop"
             }
             resources {
                 cpu = 500
