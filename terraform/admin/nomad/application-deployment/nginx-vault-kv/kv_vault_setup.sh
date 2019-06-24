@@ -10,4 +10,4 @@ path "secret/*" {
 }
 EOF
 
-vault policy-write test test.policy
+vault policy write test test.policy

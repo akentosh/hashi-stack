@@ -427,4 +427,4 @@ path "lob_a/workshop/kv/*" {
     capabilities = ["read", "list", "create", "update", "delete"]
 }
 EOF
-vault policy-write transit-app-example transit-app-example.policy
+vault policy write transit-app-example transit-app-example.policy

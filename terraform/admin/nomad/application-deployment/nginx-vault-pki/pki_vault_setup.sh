@@ -18,4 +18,4 @@ POLICY='path "*" { capabilities = ["create", "read", "update", "delete", "list",
 
 echo $POLICY > policy-superuser.hcl
 
-vault policy-write superuser policy-superuser.hcl
+vault policy write superuser policy-superuser.hcl
