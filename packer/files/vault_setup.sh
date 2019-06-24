@@ -417,6 +417,9 @@ cat << EOF > transit-app-example.policy
 path "lob_a/workshop/database/creds/workshop-app" {
     capabilities = ["read", "list", "create", "update", "delete"]
 }
+path "lob_a/workshop/database/creds/workshop-app-long" {
+    capabilities = ["read", "list", "create", "update", "delete"]
+}
 path "lob_a/workshop/transit/*" {
     capabilities = ["read", "list", "create", "update", "delete"]
 }
