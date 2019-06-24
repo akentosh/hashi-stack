@@ -167,7 +167,7 @@ def index():
 def records():
     global dbc
     records = json.loads(get_customers())
-    return render_template('records.html', results = records, dbusername = dbc.username, dbpassword = dbc.password)
+    return render_template('records.html', results = records, dbusername = dbc.username, dbpassword = dbc.password, conf=read_config())
 
 @app.route('/dbview', methods=['GET'])
 def dbview():
@@ -179,11 +179,11 @@ def dbview():
 def dbuserview():
     global dbc
     records = dbc.get_users()
-    return render_template('dbuserview.html', results = records)
+    return render_template('dbuserview.html', results = records, conf=read_config())
 
 @app.route('/add', methods=['GET'])
 def add():
-    return render_template('add.html')
+    return render_template('add.html', conf=read_config())
 
 @app.route('/add', methods=['POST'])
 def add_submit():
@@ -192,7 +192,7 @@ def add_submit():
 
 @app.route('/update', methods=['GET'])
 def update():
-    return render_template('update.html')
+    return render_template('update.html', conf=read_config())
 
 @app.route('/update', methods=['POST'])
 def update_submit():
