@@ -93,7 +93,7 @@ if [ "${vault_cloud_auto_init_and_unseal}" = true ] ; then
         --data '{}' \
         --silent \
         http://$${LOCAL_ACTIVE_VAULT}:8200/v1/sys/replication/performance/primary/enable
-    
+   sleep 5
     
     for region in ${remote_regions}; do
       echo "Generating Vault performance replication token for $${region} Vault cluster"
