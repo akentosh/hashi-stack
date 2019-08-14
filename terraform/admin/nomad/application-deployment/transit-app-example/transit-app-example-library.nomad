@@ -19,7 +19,7 @@ job "transit-app-example" {
             driver = "docker"
             config {
                 image = "arodd/spork-websvc:latest"
-                volumes = ["local/config.ini:/usr/src/app/config/config.ini"]
+                volumes = ["local/config:/usr/src/app/config"]
                 network_mode = "host"
                 port_map {
                     transitApp = 5000
@@ -50,7 +50,7 @@ job "transit-app-example" {
                 [CONSUL]
                 DEBUG = {{ key "service/web/debug" }}
                 EOH
-                destination = "local/config.ini"
+                destination = "local/config/config.ini"
                 change_mode = "noop"
             }
             resources {
